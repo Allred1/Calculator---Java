@@ -1,0 +1,38 @@
+
+JAVA notes
+
+SYNTAX
+    - Every line of code must be inside a class. (name: uppercase first letter)
+    - "main()" method is required. Present in every Java program.
+        "public static void main(String[] args)"
+OUTPUT
+    - To print something to the screen:
+        "System.out.println("Hello World");
+        - Text must be inside double quotes ""
+        - "print()" also prints, only without inserting a new line.
+        - Can perform mathmatical operations within the print statement. 
+COMMENTS
+    - // single line
+    - /* */ multi-line 
+VARIABLES
+    - Types: String, int, float, char, boolean. 
+    - Syntax: 
+        - type variableName = value;
+        - final type variableName = value;
+            (unchangeable & read-only)
+    - Can declare multiple variables of the SAME TYPE as a comma-separated list. 
+    - camelCase
+DATA TYPES
+    - Primitive Data Types: 
+        byte, short, int, long, float, double, boolean, char
+    - Non-Primitive Data Types:
+        String, Arrays, Classes
+    
+
+    
+
+
+
+
+
+    

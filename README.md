@@ -44,3 +44,20 @@
  Next: implement a GUI
  Next: tie them together
 
+ Plan:
+
+ Calculator class
+    method taking user input
+        conditions on the operation used
+    Outputs the solution
+
+ GUI class
+
+
+ Functionality: 
+    - Ask the user to enter an equation (string)
+    - Parse the string, taking out the two numbers and then the operator. 
+    - Analyze the operator, perform the correct operation on the two given numbers. 
+    - Return the solution.
+    
+
