@@ -21,85 +21,6 @@ class Main extends JFrame implements ActionListener {
         num1 = "";
         num2 = "";        
     }
-
-
-
-    public void actionPerformed(ActionEvent e)
-    {
-        String s = e.getActionCommand();
- 
-        // if the value is a number
-        if ((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.') {
-            // if operand is present then add to second no
-            if (!operator.equals(""))
-                num2 = num2 + s;
-            else
-                num1 = num1 + s;
- 
-            // set the value of text
-            textField.setText(num1 + operator + num2);
-        }
-        else if (s.charAt(0) == 'C') {
-            // clear the one letter
-            num1 = operator = num2 = "";
- 
-            // set the value of text
-            textField.setText(num1 + operator + num2);
-        }
-        else if (s.charAt(0) == '=') {
- 
-            double te;
- 
-            // store the value in 1st
-            if (operator.equals("+"))
-                te = (Double.parseDouble(num1) + Double.parseDouble(num2));
-            else if (operator.equals("-"))
-                te = (Double.parseDouble(num1) - Double.parseDouble(num2));
-            else if (operator.equals("/"))
-                te = (Double.parseDouble(num1) / Double.parseDouble(num2));
-            else
-                te = (Double.parseDouble(num1) * Double.parseDouble(num2));
- 
-            // set the value of text
-            textField.setText(num1 + operator + num2 + "=" + te);
- 
-            // convert it to string
-            num1 = Double.toString(te);
- 
-            operator = num2 = "";
-        }
-        else {
-            // if there was no operand
-            if (operator.equals("") || num2.equals(""))
-                operator = s;
-            // else evaluate
-            else {
-                double te;
- 
-                // store the value in 1st
-                if (operator.equals("+"))
-                    te = (Double.parseDouble(num1) + Double.parseDouble(num2));
-                else if (operator.equals("-"))
-                    te = (Double.parseDouble(num1) - Double.parseDouble(num2));
-                else if (operator.equals("/"))
-                    te = (Double.parseDouble(num1) / Double.parseDouble(num2));
-                else
-                    te = (Double.parseDouble(num1) * Double.parseDouble(num2));
- 
-                // convert it to string
-                num1 = Double.toString(te);
- 
-                // place the operator
-                operator = s;
- 
-                // make the operand blank
-                num2 = "";
-            }
- 
-            // set the value of text
-            textField.setText(num1 + operator + num2);
-        }
-    }
  
 
 
@@ -213,5 +134,83 @@ class Main extends JFrame implements ActionListener {
         frame.setLayout(null);
         frame.setVisible(true);
         
+    }
+
+
+    public void actionPerformed(ActionEvent e)
+    {
+        String input = e.getActionCommand();
+ 
+        // if the value is a number
+        if ((input.charAt(0) >= '0' && input.charAt(0) <= '9') || input.charAt(0) == '.') {
+            // if operand is present then add to second no
+            if (!operator.equals(""))
+                num2 = num2 + input;
+            else
+                num1 = num1 + input;
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
+        else if (input.charAt(0) == 'C') {
+            // clear the one letter
+            num1 = operator = num2 = "";
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
+        else if (input.charAt(0) == '=') {
+ 
+            double te;
+ 
+            // store the value in 1st
+            if (operator.equals("+"))
+                te = (Double.parseDouble(num1) + Double.parseDouble(num2));
+            else if (operator.equals("-"))
+                te = (Double.parseDouble(num1) - Double.parseDouble(num2));
+            else if (operator.equals("/"))
+                te = (Double.parseDouble(num1) / Double.parseDouble(num2));
+            else
+                te = (Double.parseDouble(num1) * Double.parseDouble(num2));
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2 + "=" + te);
+ 
+            // convert it to string
+            num1 = Double.toString(te);
+ 
+            operator = num2 = "";
+        }
+        else {
+            // if there was no operand
+            if (operator.equals("") || num2.equals(""))
+                operator = input;
+            // else evaluate
+            else {
+                double te;
+ 
+                // store the value in 1st
+                if (operator.equals("+"))
+                    te = (Double.parseDouble(num1) + Double.parseDouble(num2));
+                else if (operator.equals("-"))
+                    te = (Double.parseDouble(num1) - Double.parseDouble(num2));
+                else if (operator.equals("/"))
+                    te = (Double.parseDouble(num1) / Double.parseDouble(num2));
+                else
+                    te = (Double.parseDouble(num1) * Double.parseDouble(num2));
+ 
+                // convert it to string
+                num1 = Double.toString(te);
+ 
+                // place the operator
+                operator = input;
+ 
+                // make the operand blank
+                num2 = "";
+            }
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
     }
 }
