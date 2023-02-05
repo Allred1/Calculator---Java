@@ -9,9 +9,7 @@ The purpose of this program was to obtain a greater understanding of the Java La
 This is a simple calculator program that enables one to perform the four main operations on a calculator: adding, subtracting, multiplying, and dividing. It allows the use of a period "." for calculating doubles instead of only integers. It uses basic Swing libraries to create a clean user interface with orgranized buttons and display. 
 
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Java Calculator Demo](https://www.youtube.com/watch?v=XImdFT4OEcI)
 
 # Development Environment
 
