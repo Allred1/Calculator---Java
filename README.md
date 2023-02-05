@@ -1,15 +1,13 @@
 # Calculator - Java
- A calculator application written in Java
+ A simple calculator application written in Java
 
- 
 
  # Overview
 
-{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
+The purpose of this program was to obtain a greater understanding of the Java Language and the implementation of using the Swing graphical user interface (GUI). 
 
-{Provide a description of the software that you wrote to demonstrate the Java language.}
+This is a simple calculator program that enables one to perform the four main operations on a calculator: adding, subtracting, multiplying, and dividing. It allows the use of a period "." for calculating doubles instead of only integers. It uses basic Swing libraries to create a clean user interface with orgranized buttons and display. 
 
-{Describe your purpose for writing this software.}
 
 {Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
@@ -17,47 +15,26 @@
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+Tools used: 
+- Video Studio Code
 
-{Describe the programming language that you used and any libraries.}
+Languages and libraries used: 
+- Java version 11.0.12
+- Swing
+
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
-- [Web Site Name](http://url.link.goes.here)
-- [Web Site Name](http://url.link.goes.here)
+- [Swing Tutorial](https://www.tutorialspoint.com/swing/index.htm)
+- [Java Tutorial | Learn Java Programming - javatpoint](https://www.javatpoint.com/java-tutorial)
+- [Java Tutorial](https://www.w3schools.com/java)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
-
-
-
-
-(Just my own notes:)
- First: write the classes and methods, and get them to display in the terminal. 
- Next: implement a GUI
- Next: tie them together
-
- Plan:
-
- Calculator class
-    method taking user input
-        conditions on the operation used
-    Outputs the solution
-
- GUI class
-
-
- Functionality: 
-    - Ask the user to enter an equation (string)
-    - Parse the string, taking out the two numbers and then the operator. 
-    - Analyze the operator, perform the correct operation on the two given numbers. 
-    - Return the solution.
-    
-
+- A delete button
+- A negative number button (+/-)
+- A cleaner display (only immediately inputted numbers, with the previous input displayed subtley above the main display)
+- Larger font
+- Cleaner borders
+- Implement the use of keyboard number and operator keys
+- More complex operators

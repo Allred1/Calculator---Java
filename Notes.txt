@@ -31,6 +31,31 @@ DATA TYPES
 
 
 
+
+NOTES FOR IMPLEMENTING THE CALCULATOR PROGRAM
+ First: write the classes and methods, and get them to display in the terminal. 
+ Next: implement a GUI
+ Next: tie them together
+
+ Plan:
+
+ Calculator class
+    method taking user input
+        conditions on the operation used
+    Outputs the solution
+
+ GUI class
+
+ Functionality: 
+    - Ask the user to enter an equation (string)
+    - Parse the string, taking out the two numbers and then the operator. 
+    - Analyze the operator, perform the correct operation on the two given numbers. 
+    - Return the solution.
+    
+
+
+
+
 Old Testing Program
 
 import java.util.Scanner;
