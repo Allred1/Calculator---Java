@@ -1,117 +1,232 @@
-import java.util.Scanner;
-import javax.swing.*;
+
 import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
 
 
-// Every Java application begins with a class referencing the name of its file. 
-
-
-public class Main {
-
-
-    // Get user input (an equation as a string)
-    static void userInput() {
-        Scanner input = new Scanner(System.in); // Create a Scanner object to allow user input.
-
-        // System.out.println("Enter a number: ");
-        // System.out.println("Enter an operation: ");
-        // System.out.println("Enter another number: ");
-        // System.out.println("FirstNum: " + firstNum);
-        // System.out.println("Operator: " + operator);
-        // System.out.println("SecondNum: " + secondNum);
-
-        System.out.println("Enter a number, operator, and number:");
-        // String equation = input.nextLine();
-
-        // Defects: needs a space
-        double firstNum = input.nextDouble();
-        String operator = input.next();
-        double secondNum = input.nextDouble();
-
-        // For Debugging Purposes
-        // System.out.println(firstNum);
-        // System.out.println(operator);
-        // System.out.println(secondNum);
-
-
-
-        var solution = performCalculations(firstNum, operator, secondNum);
-        System.out.println("The solution is: " + solution);
-
-        // return performCalculations(firstNum, operator, secondNum);
-
-        // System.out.println("Enter an equation: ");
-        // String equation = input.nextLine(); // Read user input
-        // return equation;
+class Main extends JFrame implements ActionListener {
+    // Frame
+    static JFrame frame;
+    // Ttextfield
+    static JTextField textField;
+ 
+    // Operator and numbers
+    String num1;
+    String num2;
+    String operator;
+ 
+    // Constructor
+    Main() {
+        operator = "";
+        num1 = "";
+        num2 = "";        
     }
 
-    static double performCalculations(double firstNum, String operation, double secondNum) {
+    public void actionPerformed(ActionEvent e)
+    {
+        String s = e.getActionCommand();
+ 
+        // if the value is a number
+        if ((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.') {
+            // if operand is present then add to second no
+            if (!operator.equals(""))
+                num2 = num2 + s;
+            else
+                num1 = num1 + s;
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
+        else if (s.charAt(0) == 'C') {
+            // clear the one letter
+            num1 = operator = num2 = "";
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
+        else if (s.charAt(0) == '=') {
+ 
+            double te;
+ 
+            // store the value in 1st
+            if (operator.equals("+"))
+                te = (Double.parseDouble(num1) + Double.parseDouble(num2));
+            else if (operator.equals("-"))
+                te = (Double.parseDouble(num1) - Double.parseDouble(num2));
+            else if (operator.equals("/"))
+                te = (Double.parseDouble(num1) / Double.parseDouble(num2));
+            else
+                te = (Double.parseDouble(num1) * Double.parseDouble(num2));
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2 + "=" + te);
+ 
+            // convert it to string
+            num1 = Double.toString(te);
+ 
+            operator = num2 = "";
+        }
+        else {
+            // if there was no operand
+            if (operator.equals("") || num2.equals(""))
+                operator = s;
+            // else evaluate
+            else {
+                double te;
+ 
+                // store the value in 1st
+                if (operator.equals("+"))
+                    te = (Double.parseDouble(num1) + Double.parseDouble(num2));
+                else if (operator.equals("-"))
+                    te = (Double.parseDouble(num1) - Double.parseDouble(num2));
+                else if (operator.equals("/"))
+                    te = (Double.parseDouble(num1) / Double.parseDouble(num2));
+                else
+                    te = (Double.parseDouble(num1) * Double.parseDouble(num2));
+ 
+                // convert it to string
+                num1 = Double.toString(te);
+ 
+                // place the operator
+                operator = s;
+ 
+                // make the operand blank
+                num2 = "";
+            }
+ 
+            // set the value of text
+            textField.setText(num1 + operator + num2);
+        }
+    }
+ 
+    // main function
+    public static void main(String args[])
+    {
+        // Create and set up window. 
+        frame = new JFrame("Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 
+        // Object of class
+        Main calculating = new Main();
         
-        double result = 0;
+        // Establish boundaries
+        var x = 10;
+        var y = 300;
+        var buttonWidth = 70;
+        var buttonHeight = 50;
+        var horizontalSpace = buttonWidth + 5;
+        var verticalSpace = -55;
 
-        // Determine the operator, then calculate
-        switch (operation) {
-            case "+":
-                result = firstNum + secondNum;
-                break;
-            case "-":
-                result = firstNum - secondNum;
-                break;
-            case "*":
-                result = firstNum * secondNum;
-                break;
-            case "/":
-                result = firstNum / secondNum;
-                break;
-        }        
+        // Create the user's input display
+        textField = new JTextField();
+        textField.setBounds(10,y + (verticalSpace * 4),295,buttonHeight); 
+        textField.setEditable(false);
+ 
+         
+        // Create Buttons
+        // Number Buttons
+        JButton bZero = new JButton("0");
+        JButton bOne = new JButton("1");
+        JButton bTwo = new JButton("2");
+        JButton bThree = new JButton("3");
+        JButton bFour = new JButton("4");
+        JButton bFive = new JButton("5");
+        JButton bSix = new JButton("6");
+        JButton bSeven = new JButton("7");
+        JButton bEight = new JButton("8");
+        JButton bNine = new JButton("9");
 
-        // return the solution
-        return result;
-    }
+        // Operator Buttons 
+        JButton bAdd = new JButton("+");
+        JButton bSubtract = new JButton("-");
+        JButton bMultiply = new JButton("x");
+        JButton bDivide = new JButton("/");
+        JButton bDot = new JButton(".");
+        JButton bEquals = new JButton("=");
+        JButton bClear = new JButton("C");
+        // JButton bDelete = new JButton("Del");
+        // JButton bBlank = new JButton("");
 
-    // static void performCalculation(String equation) {
-    //     // parse string
-    //     // loop through
-    //     // condition: if a number, or else
-    //     // number: stored as number variables
-    //     // else: stored as an operator
-    // }
 
-    // Parse the string (take the two numbers and the operator)
-
-    // Determine operator equation, then calculate
-    // Return the solution
-
-    
+        // Set Button positions
+        // Row 1
+        // bBlank.setBounds(x,y - verticalSpace,buttonWidth,buttonHeight);
+        bZero.setBounds(x + horizontalSpace,y - verticalSpace,buttonWidth,buttonHeight);
+        bDot.setBounds(x + (horizontalSpace * 2),y - verticalSpace,buttonWidth,buttonHeight);
+        bEquals.setBounds(x + (horizontalSpace * 3),y - verticalSpace,buttonWidth,buttonHeight);
+        bEquals.setBackground(Color.lightGray);
+        // Row 2
+        bOne.setBounds(x,y,buttonWidth,buttonHeight);
+        bTwo.setBounds(x + horizontalSpace,y,buttonWidth,buttonHeight);
+        bThree.setBounds(x + (horizontalSpace * 2),y,buttonWidth,buttonHeight);
+        bAdd.setBounds(x + (horizontalSpace * 3),y,buttonWidth,buttonHeight);
+        // Row 3
+        bFour.setBounds(x,y + verticalSpace,buttonWidth,buttonHeight);
+        bFive.setBounds(x + horizontalSpace,y + verticalSpace,buttonWidth,buttonHeight);
+        bSix.setBounds(x + (horizontalSpace * 2),y + verticalSpace,buttonWidth,buttonHeight);
+        bSubtract.setBounds(x + (horizontalSpace * 3),y + verticalSpace,buttonWidth,buttonHeight);
+        // Row 4
+        bSeven.setBounds(x,y + (verticalSpace * 2),buttonWidth,buttonHeight);
+        bEight.setBounds(x + horizontalSpace,y + (verticalSpace * 2),buttonWidth,buttonHeight);
+        bNine.setBounds(x + (horizontalSpace * 2),y + (verticalSpace * 2),buttonWidth,buttonHeight);
+        bMultiply.setBounds(x + (horizontalSpace * 3),y + (verticalSpace * 2),buttonWidth,buttonHeight);
+        // Row 5
+        // bClearAll.setBounds(x,y +(verticalSpace * 3),buttonWidth, buttonHeight);
+        // bDelete.setBounds(x + horizontalSpace,y +(verticalSpace * 3),buttonWidth,buttonHeight);
+        bClear.setBounds(x + (horizontalSpace * 2),y + (verticalSpace * 3),buttonWidth,buttonHeight);
+        bDivide.setBounds(x + (horizontalSpace * 3),y + (verticalSpace * 3),buttonWidth,buttonHeight);
 
  
+        // add action listeners
+        bMultiply.addActionListener(calculating);
+        bDivide.addActionListener(calculating);
+        bSubtract.addActionListener(calculating);
+        bAdd.addActionListener(calculating);
+        bNine.addActionListener(calculating);
+        bEight.addActionListener(calculating);
+        bSeven.addActionListener(calculating);
+        bSix.addActionListener(calculating);
+        bFive.addActionListener(calculating);
+        bFour.addActionListener(calculating);
+        bThree.addActionListener(calculating);
+        bTwo.addActionListener(calculating);
+        bOne.addActionListener(calculating);
+        bZero.addActionListener(calculating);
+        bDot.addActionListener(calculating);
+        bClear.addActionListener(calculating);
+        bEquals.addActionListener(calculating);
+ 
+        // Add Buttons to Frame
+        //  frame.add(bBlank);
+        frame.add(bZero);
+        frame.add(bDot);
+        frame.add(bEquals);
+  
+        frame.add(bOne);
+        frame.add(bTwo);
+        frame.add(bThree);
+        frame.add(bAdd);
+  
+        frame.add(bFour);
+        frame.add(bFive);
+        frame.add(bSix);
+        frame.add(bSubtract);
+  
+        frame.add(bSeven);
+        frame.add(bEight);
+        frame.add(bNine);
+        frame.add(bMultiply);
+ 
+        // frame.add(bClearAll); 
+        // frame.add(bDelete);
+        frame.add(bClear);
+        frame.add(bDivide);
+ 
 
-
-    /*
-     * Notes to self:
-     *  I can take the user input, then do a shift each time an a second number is inputed. It'll give the solution to the first equation, but then automatically shift the second number into the first number's place, and allow the user to enter a second number. Ideas: a "next number" method. 
-     */
-    
-
-
-
-    public static void main(String[] args) {
-
-        // Print out "Hello World!"
-        // System.out.println("Hello World!");
-
+        frame.add(textField); 
+        frame.setSize(330,450);
+        frame.setLayout(null);
+        frame.setVisible(true);
         
-        userInput();
-
-        // var solution = userInput();
-        // System.out.println("The equation is: " + solution);
-        // System.out.print("The answer is: " + solution);
-        // userInput();
-
-
-        // Get user input, Perform a calculation
-        // performCalculations();
     }
-
-
 }
