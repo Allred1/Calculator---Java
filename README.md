@@ -33,6 +33,5 @@ Languages and libraries used:
 - A negative number button (+/-)
 - A cleaner display (only immediately inputted numbers, with the previous input displayed subtley above the main display)
 - Larger font
-- Cleaner borders
 - Implement the use of keyboard number and operator keys
-- More complex operators
+- More complex operations
