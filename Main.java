@@ -22,6 +22,8 @@ class Main extends JFrame implements ActionListener {
         num2 = "";        
     }
 
+
+
     public void actionPerformed(ActionEvent e)
     {
         String s = e.getActionCommand();
@@ -99,7 +101,8 @@ class Main extends JFrame implements ActionListener {
         }
     }
  
-    // main function
+
+
     public static void main(String args[])
     {
         // Create and set up window. 
@@ -119,31 +122,32 @@ class Main extends JFrame implements ActionListener {
 
         // Create the user's input display
         textField = new JTextField();
+        textField.setHorizontalAlignment(SwingConstants.RIGHT);
         textField.setBounds(10,y + (verticalSpace * 4),295,buttonHeight); 
         textField.setEditable(false);
  
          
         // Create Buttons
         // Number Buttons
-        JButton bZero = new JButton("0");
-        JButton bOne = new JButton("1");
-        JButton bTwo = new JButton("2");
-        JButton bThree = new JButton("3");
-        JButton bFour = new JButton("4");
-        JButton bFive = new JButton("5");
-        JButton bSix = new JButton("6");
-        JButton bSeven = new JButton("7");
-        JButton bEight = new JButton("8");
-        JButton bNine = new JButton("9");
+        JButton bZero = new JButton("0");       bZero.setBackground(Color.white);
+        JButton bOne = new JButton("1");        bOne.setBackground(Color.white);
+        JButton bTwo = new JButton("2");        bTwo.setBackground(Color.white);
+        JButton bThree = new JButton("3");      bThree.setBackground(Color.white);
+        JButton bFour = new JButton("4");       bFour.setBackground(Color.white);
+        JButton bFive = new JButton("5");       bFive.setBackground(Color.white);
+        JButton bSix = new JButton("6");        bSix.setBackground(Color.white);
+        JButton bSeven = new JButton("7");      bSeven.setBackground(Color.white);
+        JButton bEight = new JButton("8");      bEight.setBackground(Color.white);
+        JButton bNine = new JButton("9");       bNine.setBackground(Color.white);
 
         // Operator Buttons 
-        JButton bAdd = new JButton("+");
-        JButton bSubtract = new JButton("-");
-        JButton bMultiply = new JButton("x");
-        JButton bDivide = new JButton("/");
-        JButton bDot = new JButton(".");
-        JButton bEquals = new JButton("=");
-        JButton bClear = new JButton("C");
+        JButton bAdd = new JButton("+");        bAdd.setBackground(Color.white);
+        JButton bSubtract = new JButton("-");   bSubtract.setBackground(Color.white);
+        JButton bMultiply = new JButton("x");   bMultiply.setBackground(Color.white);
+        JButton bDivide = new JButton("/");     bDivide.setBackground(Color.white);
+        JButton bDot = new JButton(".");        bDot.setBackground(Color.white);
+        JButton bEquals = new JButton("=");     bEquals.setBackground(Color.lightGray);
+        JButton bClear = new JButton("C");      bClear.setBackground(Color.white);
         // JButton bDelete = new JButton("Del");
         // JButton bBlank = new JButton("");
 
@@ -154,7 +158,6 @@ class Main extends JFrame implements ActionListener {
         bZero.setBounds(x + horizontalSpace,y - verticalSpace,buttonWidth,buttonHeight);
         bDot.setBounds(x + (horizontalSpace * 2),y - verticalSpace,buttonWidth,buttonHeight);
         bEquals.setBounds(x + (horizontalSpace * 3),y - verticalSpace,buttonWidth,buttonHeight);
-        bEquals.setBackground(Color.lightGray);
         // Row 2
         bOne.setBounds(x,y,buttonWidth,buttonHeight);
         bTwo.setBounds(x + horizontalSpace,y,buttonWidth,buttonHeight);
@@ -197,32 +200,14 @@ class Main extends JFrame implements ActionListener {
         bEquals.addActionListener(calculating);
  
         // Add Buttons to Frame
-        //  frame.add(bBlank);
-        frame.add(bZero);
-        frame.add(bDot);
-        frame.add(bEquals);
-  
-        frame.add(bOne);
-        frame.add(bTwo);
-        frame.add(bThree);
-        frame.add(bAdd);
-  
-        frame.add(bFour);
-        frame.add(bFive);
-        frame.add(bSix);
-        frame.add(bSubtract);
-  
-        frame.add(bSeven);
-        frame.add(bEight);
-        frame.add(bNine);
-        frame.add(bMultiply);
+        frame.add(bZero); frame.add(bDot); frame.add(bEquals);
+        frame.add(bOne); frame.add(bTwo); frame.add(bThree); frame.add(bAdd);
+        frame.add(bFour); frame.add(bFive); frame.add(bSix); frame.add(bSubtract);
+        frame.add(bSeven); frame.add(bEight); frame.add(bNine); frame.add(bMultiply);
+        frame.add(bClear); frame.add(bDivide);
+        // frame.add(bClearAll); // frame.add(bDelete); //  frame.add(bBlank);
+        
  
-        // frame.add(bClearAll); 
-        // frame.add(bDelete);
-        frame.add(bClear);
-        frame.add(bDivide);
- 
-
         frame.add(textField); 
         frame.setSize(330,450);
         frame.setLayout(null);
